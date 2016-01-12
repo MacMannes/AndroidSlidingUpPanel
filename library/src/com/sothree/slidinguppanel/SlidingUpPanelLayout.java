@@ -1414,10 +1414,10 @@ public class SlidingUpPanelLayout extends ViewGroup {
             } else if (direction > 0 && mSlideOffset > mAnchorPoint) {
                 // swipe up past anchor -> expand
                 target = computePanelTopPosition(1.0f);
-            } else if (direction < 0 && mSlideOffset >= mAnchorPoint) {
+            } else if (mHideWithFlingEnabled && direction < 0 && mSlideOffset >= mAnchorPoint) {
                 // swipe down -> collapse and stop at anchor point
                 target = computePanelTopPosition(mAnchorPoint);
-            } else if (direction < 0 && mSlideOffset < mAnchorPoint) {
+            } else if (mHideWithFlingEnabled && direction < 0 && mSlideOffset < mAnchorPoint) {
                 // swipe down past anchor -> collapse
                 target = computePanelTopPosition(0.0f);
             } else if (mSlideOffset >= (1.f + mAnchorPoint) / 2) {
